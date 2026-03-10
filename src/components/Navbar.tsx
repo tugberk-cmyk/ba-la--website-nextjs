@@ -43,6 +43,7 @@ const Navbar = () => {
   const simpleLinks = [
     { label: t("nav.howItWorks"), href: "/nasil-calisir" },
     { label: t("nav.pricing"), href: "/fiyatlandirma" },
+    { label: "Blog", href: "/blog" },
     { label: t("nav.contact"), href: "/iletisim" },
   ];
 
