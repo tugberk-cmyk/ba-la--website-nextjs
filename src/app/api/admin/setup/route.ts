@@ -54,9 +54,12 @@ export async function POST(req: NextRequest) {
       message: "Admin account created successfully.",
       admin: data,
     });
-  } catch {
+  } catch (err: unknown) {
+    const message = err instanceof Error ? err.message : String(err);
+    const stack = err instanceof Error ? err.stack : undefined;
+    console.error("Setup error:", message, stack);
     return NextResponse.json(
-      { error: "Internal server error" },
+      { error: "Internal server error: " + message },
       { status: 500 }
     );
   }
