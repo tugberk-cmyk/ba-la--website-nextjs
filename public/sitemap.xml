@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://baglac.lovable.app/</loc><priority>1.0</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://baglac.lovable.app/ozellikler</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://baglac.lovable.app/nasil-calisir</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://baglac.lovable.app/fiyatlandirma</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://baglac.lovable.app/iletisim</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://baglac.lovable.app/teknoloji</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://baglac.lovable.app/icerik-tipleri/blog</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://baglac.lovable.app/icerik-tipleri/kategori</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://baglac.lovable.app/icerik-tipleri/urun</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://baglac.lovable.app/yardim-merkezi</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://baglac.lovable.app/kullanim-kosullari</loc><priority>0.3</priority><changefreq>yearly</changefreq></url>
+  <url><loc>https://baglac.lovable.app/gizlilik-politikasi</loc><priority>0.3</priority><changefreq>yearly</changefreq></url>
+</urlset>
