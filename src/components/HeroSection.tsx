@@ -75,7 +75,7 @@ const HeroSection = () => {
             </p>
             <div className="flex flex-row gap-3 items-center animate-fade-up [animation-delay:0.2s]">
               <Link
-                href="/iletisim"
+                href="/demo"
                 className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold rounded-md bg-foreground text-background hover:bg-foreground/85 transition-colors"
               >
                 {t("hero.cta")}

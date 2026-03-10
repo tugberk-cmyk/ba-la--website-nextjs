@@ -134,9 +134,19 @@ const Navbar = () => {
           })}
         </nav>
 
-        {/* CTA button + Language Switcher */}
+        {/* CTA buttons + Language Switcher */}
         <div className="hidden md:flex items-center gap-2">
           <LanguageSwitcher />
+          <Link
+            href="/demo"
+            className={`px-4 py-2 text-sm font-semibold rounded-md border border-foreground transition-colors ${
+              pathname === "/demo"
+                ? "bg-foreground text-background"
+                : "text-foreground hover:bg-foreground hover:text-background"
+            }`}
+          >
+            Demo Talep Et
+          </Link>
           <a
             className="px-4 py-2 text-sm font-semibold rounded-md bg-foreground text-background hover:bg-foreground/85 transition-colors"
             href="https://app.baglac.com.tr/"
@@ -210,6 +220,13 @@ const Navbar = () => {
             <div className="px-3 py-1">
               <LanguageSwitcher />
             </div>
+            <Link
+              href="/demo"
+              className="block px-3 py-2.5 text-sm font-semibold text-center rounded-md border border-foreground text-foreground hover:bg-foreground hover:text-background transition-colors"
+              onClick={() => setMobileOpen(false)}
+            >
+              Demo Talep Et
+            </Link>
             <a
               href="https://app.baglac.com.tr/"
               className="block px-3 py-2.5 text-sm font-semibold text-center rounded-md bg-foreground text-background hover:bg-foreground/85 transition-colors"
