@@ -88,6 +88,14 @@
 }
 
 @layer utilities {
+  /* Blog list nesting fix */
+  .font-serif li > p {
+    margin-bottom: 0.25rem;
+  }
+  .font-serif li > p:last-child {
+    margin-bottom: 0;
+  }
+
   .gradient-primary {
     background: var(--gradient-primary);
   }

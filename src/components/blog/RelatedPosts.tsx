@@ -2,6 +2,7 @@
 
 import type { BlogPost } from "@/types/blog";
 import BlogCard from "@/components/blog/BlogCard";
+import { Separator } from "@/components/ui/separator";
 
 interface RelatedPostsProps {
   posts: BlogPost[];
@@ -11,7 +12,11 @@ export default function RelatedPosts({ posts }: RelatedPostsProps) {
   if (posts.length === 0) return null;
 
   return (
-    <section className="mt-16">
+    <section className="mt-20 mb-8">
+      <Separator className="mb-12" />
+      <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">
+        Okumaya Devam Et
+      </p>
       <h2 className="text-2xl font-bold text-foreground mb-8">
         Ilgili Yazilar
       </h2>

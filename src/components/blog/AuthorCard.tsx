@@ -8,23 +8,30 @@ interface AuthorCardProps {
 
 export default function AuthorCard({ name, title, avatar }: AuthorCardProps) {
   return (
-    <div className="border border-border rounded-xl bg-muted/30 p-6 flex items-center gap-5">
+    <div className="flex items-start gap-5">
       {avatar ? (
         <img
           src={avatar}
           alt={name}
-          className="w-16 h-16 rounded-full object-cover shrink-0"
+          className="w-14 h-14 rounded-full object-cover shrink-0 ring-2 ring-border"
         />
       ) : (
-        <div className="w-16 h-16 rounded-full bg-muted flex items-center justify-center shrink-0">
-          <span className="text-xl font-bold text-muted-foreground">
+        <div className="w-14 h-14 rounded-full bg-muted flex items-center justify-center shrink-0 ring-2 ring-border">
+          <span className="text-lg font-bold text-muted-foreground">
             {name?.charAt(0) || "?"}
           </span>
         </div>
       )}
-      <div>
-        <p className="font-bold text-lg text-foreground">{name}</p>
-        <p className="text-sm text-muted-foreground">{title}</p>
+      <div className="flex flex-col">
+        <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground mb-1">
+          Yazar
+        </p>
+        <p className="font-bold text-lg text-foreground leading-tight">
+          {name}
+        </p>
+        {title && (
+          <p className="text-sm text-muted-foreground mt-0.5">{title}</p>
+        )}
       </div>
     </div>
   );
