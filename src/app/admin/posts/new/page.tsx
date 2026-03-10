@@ -33,7 +33,7 @@ import Link from "next/link";
 const MDEditor = dynamic(() => import("@uiw/react-md-editor"), { ssr: false });
 
 interface Category {
-  _id: string;
+  id: string;
   name: string;
   slug: string;
 }
@@ -130,7 +130,7 @@ export default function AdminNewPostPage() {
     setDragActive(false);
   };
 
-  const handleSave = async (status: "draft" | "published") => {
+  const handleSave = async (publish: boolean) => {
     if (!title.trim()) return;
     setSaving(true);
     try {
@@ -141,14 +141,14 @@ export default function AdminNewPostPage() {
           title,
           slug,
           excerpt,
-          coverImage,
-          category: category || undefined,
-          authorName,
-          authorTitle,
+          cover_image: coverImage || undefined,
+          category_id: category || undefined,
+          author_name: authorName || undefined,
+          author_title: authorTitle || undefined,
           content,
-          metaTitle,
-          metaDescription,
-          status,
+          meta_title: metaTitle || undefined,
+          meta_description: metaDescription || undefined,
+          published: publish,
         }),
       });
       if (res.ok) {
@@ -176,7 +176,7 @@ export default function AdminNewPostPage() {
         <div className="flex items-center gap-2">
           <Button
             variant="outline"
-            onClick={() => handleSave("draft")}
+            onClick={() => handleSave(false)}
             disabled={saving}
           >
             {saving ? (
@@ -184,7 +184,7 @@ export default function AdminNewPostPage() {
             ) : null}
             Taslak Kaydet
           </Button>
-          <Button onClick={() => handleSave("published")} disabled={saving}>
+          <Button onClick={() => handleSave(true)} disabled={saving}>
             {saving ? (
               <Loader2 className="h-4 w-4 animate-spin" />
             ) : null}
@@ -311,7 +311,7 @@ export default function AdminNewPostPage() {
               </SelectTrigger>
               <SelectContent>
                 {categories.map((cat) => (
-                  <SelectItem key={cat._id} value={cat._id}>
+                  <SelectItem key={cat.id} value={cat.id}>
                     {cat.name}
                   </SelectItem>
                 ))}

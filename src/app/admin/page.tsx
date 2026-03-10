@@ -28,11 +28,11 @@ interface DashboardStats {
 }
 
 interface RecentPost {
-  _id: string;
+  id: string;
   title: string;
-  status: "published" | "draft";
-  createdAt: string;
-  category?: { name: string };
+  published: boolean;
+  created_at: string;
+  blog_categories?: { name: string };
 }
 
 export default function AdminDashboardPage() {
@@ -187,8 +187,8 @@ export default function AdminDashboardPage() {
               <div className="space-y-3">
                 {recentPosts.map((post) => (
                   <Link
-                    key={post._id}
-                    href={`/admin/posts/${post._id}/edit`}
+                    key={post.id}
+                    href={`/admin/posts/${post.id}/edit`}
                     className="flex items-center justify-between rounded-md border p-3 transition-colors hover:bg-gray-50"
                   >
                     <div className="min-w-0 flex-1">
@@ -196,21 +196,21 @@ export default function AdminDashboardPage() {
                         {post.title}
                       </p>
                       <p className="text-xs text-gray-500">
-                        {post.category?.name || "Kategorisiz"} &middot;{" "}
-                        {new Date(post.createdAt).toLocaleDateString("tr-TR")}
+                        {post.blog_categories?.name || "Kategorisiz"} &middot;{" "}
+                        {new Date(post.created_at).toLocaleDateString("tr-TR")}
                       </p>
                     </div>
                     <Badge
                       variant={
-                        post.status === "published" ? "default" : "secondary"
+                        post.published ? "default" : "secondary"
                       }
                       className={
-                        post.status === "published"
+                        post.published
                           ? "bg-green-100 text-green-700 hover:bg-green-100"
                           : "bg-amber-100 text-amber-700 hover:bg-amber-100"
                       }
                     >
-                      {post.status === "published" ? "Yayinda" : "Taslak"}
+                      {post.published ? "Yayinda" : "Taslak"}
                     </Badge>
                   </Link>
                 ))}

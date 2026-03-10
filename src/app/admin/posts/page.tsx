@@ -26,12 +26,12 @@ import {
 import { Plus, Pencil, Trash2, Loader2 } from "lucide-react";
 
 interface Post {
-  _id: string;
+  id: string;
   title: string;
   slug: string;
-  status: "published" | "draft";
-  createdAt: string;
-  category?: { _id: string; name: string };
+  published: boolean;
+  created_at: string;
+  blog_categories?: { id: string; name: string };
 }
 
 export default function AdminPostsPage() {
@@ -46,7 +46,8 @@ export default function AdminPostsPage() {
     setLoading(true);
     try {
       const params = new URLSearchParams();
-      if (filter !== "all") params.set("status", filter);
+      if (filter === "published") params.set("published", "true");
+      else if (filter === "draft") params.set("published", "false");
       const res = await fetch(`/api/admin/posts?${params.toString()}`);
       if (res.ok) {
         const data = await res.json();
@@ -67,11 +68,11 @@ export default function AdminPostsPage() {
     if (!deleteTarget) return;
     setDeleting(true);
     try {
-      const res = await fetch(`/api/admin/posts/${deleteTarget._id}`, {
+      const res = await fetch(`/api/admin/posts/${deleteTarget.id}`, {
         method: "DELETE",
       });
       if (res.ok) {
-        setPosts((prev) => prev.filter((p) => p._id !== deleteTarget._id));
+        setPosts((prev) => prev.filter((p) => p.id !== deleteTarget.id));
       }
     } catch {
       // silently fail
@@ -136,34 +137,34 @@ export default function AdminPostsPage() {
             </TableHeader>
             <TableBody>
               {posts.map((post) => (
-                <TableRow key={post._id}>
+                <TableRow key={post.id}>
                   <TableCell className="font-medium">
                     <Link
-                      href={`/admin/posts/${post._id}/edit`}
+                      href={`/admin/posts/${post.id}/edit`}
                       className="hover:underline"
                     >
                       {post.title}
                     </Link>
                   </TableCell>
                   <TableCell className="text-gray-500">
-                    {post.category?.name || "Kategorisiz"}
+                    {post.blog_categories?.name || "Kategorisiz"}
                   </TableCell>
                   <TableCell>
                     <Badge
                       variant={
-                        post.status === "published" ? "default" : "secondary"
+                        post.published ? "default" : "secondary"
                       }
                       className={
-                        post.status === "published"
+                        post.published
                           ? "bg-green-100 text-green-700 hover:bg-green-100"
                           : "bg-amber-100 text-amber-700 hover:bg-amber-100"
                       }
                     >
-                      {post.status === "published" ? "Yayinda" : "Taslak"}
+                      {post.published ? "Yayinda" : "Taslak"}
                     </Badge>
                   </TableCell>
                   <TableCell className="text-gray-500">
-                    {new Date(post.createdAt).toLocaleDateString("tr-TR")}
+                    {new Date(post.created_at).toLocaleDateString("tr-TR")}
                   </TableCell>
                   <TableCell className="text-right">
                     <div className="flex items-center justify-end gap-1">
@@ -171,7 +172,7 @@ export default function AdminPostsPage() {
                         variant="ghost"
                         size="icon"
                         onClick={() =>
-                          router.push(`/admin/posts/${post._id}/edit`)
+                          router.push(`/admin/posts/${post.id}/edit`)
                         }
                         title="Duzenle"
                       >

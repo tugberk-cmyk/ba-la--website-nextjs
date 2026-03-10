@@ -35,7 +35,7 @@ import Link from "next/link";
 const MDEditor = dynamic(() => import("@uiw/react-md-editor"), { ssr: false });
 
 interface Category {
-  _id: string;
+  id: string;
   name: string;
   slug: string;
 }
@@ -90,20 +90,21 @@ export default function AdminEditPostPage({
         }
 
         if (postRes.ok) {
-          const post = await postRes.json();
+          const postData = await postRes.json();
+          const post = postData.post || postData;
           setTitle(post.title || "");
           setSlug(post.slug || "");
           setExcerpt(post.excerpt || "");
-          setCoverImage(post.coverImage || "");
+          setCoverImage(post.cover_image || "");
           setCategory(
-            post.category?._id || post.category || ""
+            post.blog_categories?.id || post.category_id || ""
           );
-          setAuthorName(post.authorName || "");
-          setAuthorTitle(post.authorTitle || "");
+          setAuthorName(post.author_name || "");
+          setAuthorTitle(post.author_title || "");
           setContent(post.content || "");
-          setMetaTitle(post.metaTitle || "");
-          setMetaDescription(post.metaDescription || "");
-          setStatus(post.status || "draft");
+          setMetaTitle(post.meta_title || "");
+          setMetaDescription(post.meta_description || "");
+          setStatus(post.published ? "published" : "draft");
         }
       } catch {
         // silently fail
@@ -167,14 +168,14 @@ export default function AdminEditPostPage({
           title,
           slug,
           excerpt,
-          coverImage,
-          category: category || undefined,
-          authorName,
-          authorTitle,
+          cover_image: coverImage || undefined,
+          category_id: category || undefined,
+          author_name: authorName || undefined,
+          author_title: authorTitle || undefined,
           content,
-          metaTitle,
-          metaDescription,
-          status: saveStatus,
+          meta_title: metaTitle || undefined,
+          meta_description: metaDescription || undefined,
+          published: saveStatus === "published",
         }),
       });
       if (res.ok) {
@@ -365,7 +366,7 @@ export default function AdminEditPostPage({
               </SelectTrigger>
               <SelectContent>
                 {categories.map((cat) => (
-                  <SelectItem key={cat._id} value={cat._id}>
+                  <SelectItem key={cat.id} value={cat.id}>
                     {cat.name}
                   </SelectItem>
                 ))}

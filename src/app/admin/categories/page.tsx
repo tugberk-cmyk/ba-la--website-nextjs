@@ -18,7 +18,7 @@ import {
 import { Plus, Trash2, Loader2 } from "lucide-react";
 
 interface Category {
-  _id: string;
+  id: string;
   name: string;
   slug: string;
   color?: string;
@@ -104,12 +104,12 @@ export default function AdminCategoriesPage() {
     if (!deleteTarget) return;
     setDeleting(true);
     try {
-      const res = await fetch(`/api/admin/categories/${deleteTarget._id}`, {
+      const res = await fetch(`/api/admin/categories/${deleteTarget.id}`, {
         method: "DELETE",
       });
       if (res.ok) {
         setCategories((prev) =>
-          prev.filter((c) => c._id !== deleteTarget._id)
+          prev.filter((c) => c.id !== deleteTarget.id)
         );
       }
     } catch {
@@ -207,7 +207,7 @@ export default function AdminCategoriesPage() {
         <div className="space-y-2">
           {categories.map((cat) => (
             <div
-              key={cat._id}
+              key={cat.id}
               className="flex items-center justify-between rounded-md border bg-white p-4"
             >
               <div className="flex items-center gap-3">
