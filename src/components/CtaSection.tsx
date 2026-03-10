@@ -22,14 +22,14 @@ const CtaSection = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
               <Link
-                href="/iletisim"
+                href="/demo"
                 className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold rounded-md bg-white text-foreground hover:bg-white/90 active:scale-[0.98] transition-all"
               >
                 {t("cta.primary")}
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
-                href="/nasil-calisir"
+                href="/iletisim"
                 className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold rounded-md border border-white/20 text-white hover:bg-white/10 active:scale-[0.98] transition-all"
               >
                 {t("cta.secondary")}

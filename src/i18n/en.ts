@@ -43,8 +43,8 @@ const en: Record<string, string> = {
   "hero.counter": "Total content generated:",
   "hero.headline": "The infrastructure of content creation in the AI era.",
   "hero.subheadline": "Research, create, and scale — from your first text to large-scale content operations.",
-  "hero.cta": "Get in Touch",
-  "hero.secondary": "How It Works?",
+  "hero.cta": "Request Demo",
+  "hero.secondary": "Get in Touch",
 
   // Features Section
   "features.badge": "Platform Features",
@@ -173,8 +173,8 @@ const en: Record<string, string> = {
   "cta.title1": "Ready to accelerate",
   "cta.title2": "your content process?",
   "cta.subtitle": "Join thousands of content creators who choose Bağlaç for SEO-optimized content ready in seconds.",
-  "cta.primary": "Get in Touch",
-  "cta.secondary": "How It Works?",
+  "cta.primary": "Request Demo",
+  "cta.secondary": "Get in Touch",
 
   // Pricing Section
   "pricing.badge": "Pricing",

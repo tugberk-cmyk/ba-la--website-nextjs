@@ -43,8 +43,8 @@ const tr: Record<string, string> = {
   "hero.counter": "Şu ana kadar üretilen içerik:",
   "hero.headline": "Yapay zeka çağında içerik üretiminin altyapısı.",
   "hero.subheadline": "Araştırın, üretin ve ölçeklendirin. İlk metninizden büyük ölçekli içerik operasyonlarına kadar.",
-  "hero.cta": "İletişime Geç",
-  "hero.secondary": "Nasıl Çalışır?",
+  "hero.cta": "Demo Talep Et",
+  "hero.secondary": "İletişime Geç",
 
   // Features Section
   "features.badge": "Platform Özellikleri",
@@ -173,8 +173,8 @@ const tr: Record<string, string> = {
   "cta.title1": "İçerik sürecinizi",
   "cta.title2": "hızlandırmaya hazır mısınız?",
   "cta.subtitle": "Binlerce içerik üreticisinin tercih ettiği Bağlaç ile SEO uyumlu içerikler saniyeler içinde hazır.",
-  "cta.primary": "İletişime Geç",
-  "cta.secondary": "Nasıl Çalışır?",
+  "cta.primary": "Demo Talep Et",
+  "cta.secondary": "İletişime Geç",
 
   // Pricing Section
   "pricing.badge": "Fiyatlandırma",
