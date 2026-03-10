@@ -139,10 +139,10 @@ const Navbar = () => {
           <LanguageSwitcher />
           <Link
             href="/demo"
-            className={`px-4 py-2 text-sm font-semibold rounded-md border border-foreground transition-colors ${
+            className={`px-4 py-2 text-sm font-semibold rounded-md border transition-colors ${
               pathname === "/demo"
-                ? "bg-foreground text-background"
-                : "text-foreground hover:bg-foreground hover:text-background"
+                ? "bg-foreground text-background border-foreground"
+                : "border-border text-foreground hover:bg-secondary"
             }`}
           >
             Demo Talep Et
@@ -222,7 +222,7 @@ const Navbar = () => {
             </div>
             <Link
               href="/demo"
-              className="block px-3 py-2.5 text-sm font-semibold text-center rounded-md border border-foreground text-foreground hover:bg-foreground hover:text-background transition-colors"
+              className="block px-3 py-2.5 text-sm font-semibold text-center rounded-md border border-border text-foreground hover:bg-secondary transition-colors"
               onClick={() => setMobileOpen(false)}
             >
               Demo Talep Et
