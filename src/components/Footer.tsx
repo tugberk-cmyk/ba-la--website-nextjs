@@ -62,9 +62,24 @@ const Footer = () => {
               </a>
             </div>
             <div className="flex items-center gap-3 mt-5">
-              <img src="/logos/visa.svg" alt="Visa" className="h-6 rounded" />
-              <img src="/logos/mastercard.svg" alt="Mastercard" className="h-6 rounded" />
-              <img src="/logos/troy.svg" alt="Troy" className="h-6 rounded" />
+              {/* Visa */}
+              <svg viewBox="0 0 48 32" className="h-8 w-auto" aria-label="Visa">
+                <rect width="48" height="32" rx="4" fill="#1A1F71" />
+                <path d="M19.5 21h-3l1.9-11h3l-1.9 11zm12.7-10.7c-.6-.2-1.5-.5-2.7-.5-3 0-5.1 1.5-5.1 3.7 0 1.6 1.5 2.5 2.7 3 1.2.6 1.6.9 1.6 1.4 0 .7-.9 1.1-1.8 1.1-1.2 0-1.9-.2-2.9-.6l-.4-.2-.4 2.5c.7.3 2 .6 3.4.6 3.2 0 5.2-1.5 5.3-3.8 0-1.3-.8-2.2-2.5-3-.1-.1-.2-.1-.4-.2-.9-.5-1.2-.8-1.2-1.3 0-.4.4-.9 1.3-.9.7 0 1.3.1 1.8.4l.2.1.4-2.3zm7.8.3h-2.3c-.7 0-1.2.2-1.5.9l-4.3 9.5h3.2l.6-1.7h3.8l.4 1.7h2.8l-2.7-10.4zm-3.3 6.7l1.2-3.1.5-1.2.3 1.2.7 3.1h-2.7zM17.2 10.3l-2.8 7.5-.3-1.4c-.5-1.8-2.3-3.7-4.2-4.7l2.7 9.3h3.2l4.7-10.7h-3.3z" fill="#fff"/>
+                <path d="M12.3 10.3H7.6l0 .2c3.8.9 6.3 3.1 7.4 5.8l-1.1-5.1c-.2-.7-.7-.9-1.6-.9z" fill="#F9A533"/>
+              </svg>
+              {/* Mastercard */}
+              <svg viewBox="0 0 48 32" className="h-8 w-auto" aria-label="Mastercard">
+                <rect width="48" height="32" rx="4" fill="#252525" />
+                <circle cx="19" cy="16" r="8.5" fill="#EB001B" />
+                <circle cx="29" cy="16" r="8.5" fill="#F79E1B" />
+                <path d="M24 9.2a8.5 8.5 0 0 0-3.2 6.8c0 2.7 1.2 5.1 3.2 6.8a8.5 8.5 0 0 0 3.2-6.8c0-2.7-1.2-5.1-3.2-6.8z" fill="#FF5F00" />
+              </svg>
+              {/* Troy */}
+              <svg viewBox="0 0 48 32" className="h-8 w-auto" aria-label="Troy">
+                <rect width="48" height="32" rx="4" fill="#003B5C" />
+                <text x="24" y="19" textAnchor="middle" fontFamily="Arial, sans-serif" fontWeight="bold" fontSize="10" fill="#fff">TROY</text>
+              </svg>
             </div>
             <div className="mt-3">
               <img src="/logos/iyzico-band.svg" alt="iyzico ile guvenli odeme" className="h-4 opacity-50" style={{ filter: "invert(1)" }} />
@@ -91,7 +106,13 @@ const Footer = () => {
           <p className="text-sm text-muted-foreground">
             {t("footer.copyright")}
           </p>
-          <div className="flex items-center gap-1 text-sm text-muted-foreground">
+          <div className="flex items-center gap-1.5 text-sm text-muted-foreground">
+            <svg viewBox="0 0 30 20" className="w-5 h-3.5 rounded-sm overflow-hidden shrink-0" aria-label="Turkiye">
+              <rect width="30" height="20" fill="#E30A17" />
+              <circle cx="13" cy="10" r="6" fill="#fff" />
+              <circle cx="14.5" cy="10" r="4.8" fill="#E30A17" />
+              <polygon points="17,10 18.5,7 16,9 20,9 17.5,7" fill="#fff" transform="rotate(18, 17, 10)" />
+            </svg>
             <span>{t("footer.madeIn")}</span>
           </div>
         </div>
