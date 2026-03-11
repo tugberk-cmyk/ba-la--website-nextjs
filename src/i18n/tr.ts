@@ -229,6 +229,8 @@ const tr: Record<string, string> = {
   "footer.contact": "İletişim",
   "footer.privacy": "Gizlilik Politikası",
   "footer.terms": "Kullanım Koşulları",
+  "footer.distanceSales": "Mesafeli Satış Sözleşmesi",
+  "footer.cancellation": "İptal ve İade",
   "footer.copyright": "© 2026 Bağlaç. Tüm hakları saklıdır.",
   "footer.madeIn": "'de üretildi",
 

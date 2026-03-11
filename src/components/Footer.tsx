@@ -24,6 +24,8 @@ const Footer = () => {
       { label: t("footer.contact"), href: "/iletisim" },
       { label: t("footer.privacy"), href: "/gizlilik-politikasi" },
       { label: t("footer.terms"), href: "/kullanim-kosullari" },
+      { label: t("footer.distanceSales"), href: "/mesafeli-satis-sozlesmesi" },
+      { label: t("footer.cancellation"), href: "/iptal-ve-iade" },
     ],
   };
 
@@ -59,7 +61,12 @@ const Footer = () => {
                 <Instagram className="w-4 h-4" />
               </a>
             </div>
-            <div className="mt-5">
+            <div className="flex items-center gap-3 mt-5">
+              <img src="/logos/visa.svg" alt="Visa" className="h-6 rounded" />
+              <img src="/logos/mastercard.svg" alt="Mastercard" className="h-6 rounded" />
+              <img src="/logos/troy.svg" alt="Troy" className="h-6 rounded" />
+            </div>
+            <div className="mt-3">
               <img src="/logos/iyzico-band.svg" alt="iyzico ile guvenli odeme" className="h-4 opacity-50" style={{ filter: "invert(1)" }} />
             </div>
           </div>

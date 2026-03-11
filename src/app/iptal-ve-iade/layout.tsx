@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Gizlilik Politikasi — Baglac",
+  title: "Iptal ve Iade Politikasi — Baglac",
   description:
-    "Baglac gizlilik ve guvenlik politikasi. Kisisel verilerinizin nasil toplandigi ve korundugu hakkinda bilgi.",
+    "Baglac hizmet iptali, cayma hakki ve iade kosullari hakkinda bilgi.",
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

@@ -229,6 +229,8 @@ const en: Record<string, string> = {
   "footer.contact": "Contact",
   "footer.privacy": "Privacy Policy",
   "footer.terms": "Terms of Service",
+  "footer.distanceSales": "Distance Sales Agreement",
+  "footer.cancellation": "Cancellation & Refund",
   "footer.copyright": "© 2026 Bağlaç. All rights reserved.",
   "footer.madeIn": "Made in",
 
