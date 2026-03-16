@@ -47,7 +47,7 @@ const tr: Record<string, string> = {
   "hero.secondary": "İletişime Geç",
 
   // Features Section
-  "features.badge": "Özellikler & Çeşitleri",
+  "features.badge": "Platform Özellikleri",
   "features.title": "İçerik sürecinizin her adımı burada",
   "features.subtitle": "Anahtar kelime araştırmasından toplu içerik üretimine, arşivlemeye kadar — tek bir platform, tam kontrol.",
   "features.fastCreator": "Hızlı İçerik Oluşturucu",
