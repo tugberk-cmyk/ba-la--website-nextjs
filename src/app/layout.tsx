@@ -28,6 +28,9 @@ export const metadata: Metadata = {
     locale: "tr_TR",
     siteName: "Baglac",
   },
+  verification: {
+    google: "RX6VKmnUW8S6mp4uqZ21gcklHtPLvyS74VdbwLFmc8c",
+  },
 };
 
 export default function RootLayout({
