@@ -6,6 +6,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useLocalizedHref } from "@/hooks/useLocalizedPath";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -16,10 +17,22 @@ const Navbar = () => {
   const pathname = usePathname();
   const { t } = useLanguage();
 
+  const featuresHref = useLocalizedHref("features");
+  const contentTypesHref = useLocalizedHref("contentTypes");
+  const contentTypesBlogHref = useLocalizedHref("contentTypesBlog");
+  const contentTypesCategoryHref = useLocalizedHref("contentTypesCategory");
+  const contentTypesProductHref = useLocalizedHref("contentTypesProduct");
+  const howItWorksHref = useLocalizedHref("howItWorks");
+  const pricingHref = useLocalizedHref("pricing");
+  const blogHref = useLocalizedHref("blog");
+  const contactHref = useLocalizedHref("contact");
+  const demoHref = useLocalizedHref("demo");
+  const homeHref = useLocalizedHref("home");
+
   const contentTypeLinks = [
-    { label: t("nav.blog"), href: "/icerik-tipleri/blog", icon: FileText, desc: t("nav.blogDesc") },
-    { label: t("nav.category"), href: "/icerik-tipleri/kategori", icon: Tag, desc: t("nav.categoryDesc") },
-    { label: t("nav.product"), href: "/icerik-tipleri/urun", icon: ShoppingBag, desc: t("nav.productDesc") },
+    { label: t("nav.blog"), href: contentTypesBlogHref, icon: FileText, desc: t("nav.blogDesc") },
+    { label: t("nav.category"), href: contentTypesCategoryHref, icon: Tag, desc: t("nav.categoryDesc") },
+    { label: t("nav.product"), href: contentTypesProductHref, icon: ShoppingBag, desc: t("nav.productDesc") },
   ];
 
   useEffect(() => {
@@ -38,13 +51,13 @@ const Navbar = () => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  const isContentActive = pathname.startsWith("/icerik-tipleri");
+  const isContentActive = pathname.startsWith("/icerik-tipleri") || pathname.startsWith("/en/content-types");
 
   const simpleLinks = [
-    { label: t("nav.howItWorks"), href: "/nasil-calisir" },
-    { label: t("nav.pricing"), href: "/fiyatlandirma" },
-    { label: "Blog", href: "/blog" },
-    { label: t("nav.contact"), href: "/iletisim" },
+    { label: t("nav.howItWorks"), href: howItWorksHref },
+    { label: t("nav.pricing"), href: pricingHref },
+    { label: "Blog", href: blogHref },
+    { label: t("nav.contact"), href: contactHref },
   ];
 
   return (
@@ -57,16 +70,16 @@ const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto px-6 h-[60px] flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center">
+        <Link href={homeHref} className="flex items-center">
           <img src="/baglac-logo.svg" alt="baglac" className="h-[1.8rem]" />
         </Link>
 
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-0.5">
           <Link
-            href="/ozellikler"
+            href={featuresHref}
             className={`px-3.5 py-2 text-sm font-medium transition-colors rounded-md ${
-              pathname === "/ozellikler"
+              pathname === featuresHref
                 ? "text-foreground bg-secondary"
                 : "text-muted-foreground hover:text-foreground hover:bg-secondary"
             }`}
@@ -139,14 +152,14 @@ const Navbar = () => {
         <div className="hidden md:flex items-center gap-2">
           <LanguageSwitcher />
           <Link
-            href="/demo"
+            href={demoHref}
             className={`px-4 py-2 text-sm font-semibold rounded-md border transition-colors ${
-              pathname === "/demo"
+              pathname === demoHref
                 ? "bg-foreground text-background border-foreground"
                 : "border-border text-foreground hover:bg-secondary"
             }`}
           >
-            Demo Talep Et
+            {t("nav.demo")}
           </Link>
           <a
             className="px-4 py-2 text-sm font-semibold rounded-md bg-foreground text-background hover:bg-foreground/85 transition-colors"
@@ -169,7 +182,7 @@ const Navbar = () => {
       {mobileOpen && (
         <div className="md:hidden bg-white border-b border-border px-4 py-3 space-y-0.5">
           <Link
-            href="/ozellikler"
+            href={featuresHref}
             className="block px-3 py-2.5 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary rounded-md transition-colors"
             onClick={() => setMobileOpen(false)}
           >
@@ -222,11 +235,11 @@ const Navbar = () => {
               <LanguageSwitcher />
             </div>
             <Link
-              href="/demo"
+              href={demoHref}
               className="block px-3 py-2.5 text-sm font-semibold text-center rounded-md border border-border text-foreground hover:bg-secondary transition-colors"
               onClick={() => setMobileOpen(false)}
             >
-              Demo Talep Et
+              {t("nav.demo")}
             </Link>
             <a
               href="https://app.baglac.com.tr/"

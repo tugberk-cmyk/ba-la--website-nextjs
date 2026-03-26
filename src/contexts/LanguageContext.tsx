@@ -1,6 +1,8 @@
 "use client";
 
 import { createContext, useContext, useState, useEffect, ReactNode } from "react";
+import { usePathname, useRouter } from "next/navigation";
+import { getLangFromPath, getAlternatePath } from "@/lib/routes";
 
 export type Language = "tr" | "en";
 
@@ -29,20 +31,28 @@ const loadTranslations = async () => {
 loadTranslations();
 
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
-  const [language, setLanguageState] = useState<Language>("tr");
+  const pathname = usePathname();
+  const router = useRouter();
+  const derivedLang = getLangFromPath(pathname);
+  const [language, setLanguageState] = useState<Language>(derivedLang);
   const [, setLoaded] = useState(false);
 
+  // Sync language state with URL
   useEffect(() => {
-    const stored = localStorage.getItem("baglac-lang");
-    if (stored === "en") {
-      setLanguageState("en");
-    }
+    setLanguageState(derivedLang);
+    localStorage.setItem("baglac-lang", derivedLang);
+  }, [derivedLang]);
+
+  useEffect(() => {
     loadTranslations().then(() => setLoaded(true));
   }, []);
 
   const setLanguage = (lang: Language) => {
-    setLanguageState(lang);
+    if (lang === language) return;
+    const alternatePath = getAlternatePath(pathname, lang);
     localStorage.setItem("baglac-lang", lang);
+    setLanguageState(lang);
+    router.push(alternatePath);
   };
 
   const t = (key: string): string => {

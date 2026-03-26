@@ -3,29 +3,30 @@
 import Link from "next/link";
 import { Linkedin, Instagram } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useLocalizedHref } from "@/hooks/useLocalizedPath";
 
 const Footer = () => {
   const { t } = useLanguage();
 
   const links = {
     [t("footer.platform")]: [
-      { label: t("footer.features"), href: "/ozellikler" },
-      { label: t("footer.howItWorks"), href: "/nasil-calisir" },
-      { label: t("footer.pricing"), href: "/fiyatlandirma" },
+      { label: t("footer.features"), href: useLocalizedHref("features") },
+      { label: t("footer.howItWorks"), href: useLocalizedHref("howItWorks") },
+      { label: t("footer.pricing"), href: useLocalizedHref("pricing") },
     ],
     [t("footer.contentTypes")]: [
-      { label: t("footer.blogContent"), href: "/icerik-tipleri/blog" },
-      { label: t("footer.categoryContent"), href: "/icerik-tipleri/kategori" },
-      { label: t("footer.productContent"), href: "/icerik-tipleri/urun" },
+      { label: t("footer.blogContent"), href: useLocalizedHref("contentTypesBlog") },
+      { label: t("footer.categoryContent"), href: useLocalizedHref("contentTypesCategory") },
+      { label: t("footer.productContent"), href: useLocalizedHref("contentTypesProduct") },
     ],
     [t("footer.support")]: [
-      { label: t("footer.technology"), href: "/teknoloji" },
-      { label: t("footer.helpCenter"), href: "/yardim-merkezi" },
-      { label: t("footer.contact"), href: "/iletisim" },
-      { label: t("footer.privacy"), href: "/gizlilik-politikasi" },
-      { label: t("footer.terms"), href: "/kullanim-kosullari" },
-      { label: t("footer.distanceSales"), href: "/mesafeli-satis-sozlesmesi" },
-      { label: t("footer.cancellation"), href: "/iptal-ve-iade" },
+      { label: t("footer.technology"), href: useLocalizedHref("technology") },
+      { label: t("footer.helpCenter"), href: useLocalizedHref("helpCenter") },
+      { label: t("footer.contact"), href: useLocalizedHref("contact") },
+      { label: t("footer.privacy"), href: useLocalizedHref("privacyPolicy") },
+      { label: t("footer.terms"), href: useLocalizedHref("termsOfUse") },
+      { label: t("footer.distanceSales"), href: useLocalizedHref("distanceSelling") },
+      { label: t("footer.cancellation"), href: useLocalizedHref("refundPolicy") },
     ],
   };
 

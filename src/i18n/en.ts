@@ -31,6 +31,7 @@ const en: Record<string, string> = {
   "nav.howItWorks": "How It Works",
   "nav.pricing": "Pricing",
   "nav.contact": "Contact",
+  "nav.demo": "Request Demo",
   "nav.login": "Log In",
   "nav.blog": "Blog Content",
   "nav.blogDesc": "Expert, in-depth articles",

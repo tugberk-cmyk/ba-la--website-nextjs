@@ -2,10 +2,14 @@
 
 import { ArrowRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useLocalizedHref } from "@/hooks/useLocalizedPath";
 import Link from "next/link";
 
 const CtaSection = () => {
   const { t } = useLanguage();
+  const demoHref = useLocalizedHref("demo");
+  const contactHref = useLocalizedHref("contact");
+
   return (
     <section className="py-24 bg-background">
       <div className="max-w-7xl mx-auto px-6">
@@ -22,14 +26,14 @@ const CtaSection = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
               <Link
-                href="/demo"
+                href={demoHref}
                 className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold rounded-md bg-white text-foreground hover:bg-white/90 active:scale-[0.98] transition-all"
               >
                 {t("cta.primary")}
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
-                href="/iletisim"
+                href={contactHref}
                 className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold rounded-md border border-white/20 text-white hover:bg-white/10 active:scale-[0.98] transition-all"
               >
                 {t("cta.secondary")}

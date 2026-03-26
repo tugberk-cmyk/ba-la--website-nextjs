@@ -2,10 +2,12 @@
 
 import { ShoppingBag, FileText, Tag } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useLocalizedHref } from "@/hooks/useLocalizedPath";
 import Link from "next/link";
 
 const ContentTypesSection = () => {
   const { t } = useLanguage();
+  const contactHref = useLocalizedHref("contact");
 
   const contentTypes = [
     {
@@ -148,7 +150,7 @@ const ContentTypesSection = () => {
 
         <div className="mt-10 flex justify-center">
           <Link
-            href="/iletisim"
+            href={contactHref}
             className="inline-flex items-center justify-center py-3 px-8 rounded-md bg-foreground text-background text-sm font-semibold hover:bg-foreground/85 transition-colors"
           >
             {t("contentTypes.cta")}

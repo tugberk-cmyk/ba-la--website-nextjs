@@ -4,6 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { useState, useEffect } from "react";
 import HeroAnimation from "@/components/HeroAnimation";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useLocalizedHref } from "@/hooks/useLocalizedPath";
 import Link from "next/link";
 const chakraLogo = "/logos/chakra.png";
 const denizBankLogo = "/logos/denizbank.png";
@@ -55,6 +56,8 @@ const useContentCounter = () => {
 const HeroSection = () => {
   const contentCount = useContentCounter();
   const { t, language } = useLanguage();
+  const demoHref = useLocalizedHref("demo");
+  const contactHref = useLocalizedHref("contact");
 
   return (
     <section className="relative pt-36 pb-0 overflow-hidden bg-background">
@@ -75,14 +78,14 @@ const HeroSection = () => {
             </p>
             <div className="flex flex-row gap-3 items-center animate-fade-up [animation-delay:0.2s]">
               <Link
-                href="/demo"
+                href={demoHref}
                 className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold rounded-md bg-foreground text-background hover:bg-foreground/85 transition-colors"
               >
                 {t("hero.cta")}
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
-                href="/iletisim"
+                href={contactHref}
                 className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold rounded-md border border-border text-foreground hover:bg-secondary transition-colors"
               >
                 {t("hero.secondary")}

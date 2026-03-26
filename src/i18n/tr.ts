@@ -31,6 +31,7 @@ const tr: Record<string, string> = {
   "nav.howItWorks": "Nasıl Çalışır",
   "nav.pricing": "Fiyatlandırma",
   "nav.contact": "İletişim",
+  "nav.demo": "Demo Talep Et",
   "nav.login": "Giriş Yap",
   "nav.blog": "Blog İçeriği",
   "nav.blogDesc": "Bütünlük içinde ve konusunda uzman",

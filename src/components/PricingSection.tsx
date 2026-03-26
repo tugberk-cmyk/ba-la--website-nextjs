@@ -2,10 +2,12 @@
 
 import { Check, Zap } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useLocalizedHref } from "@/hooks/useLocalizedPath";
 import Link from "next/link";
 
 const PricingSection = () => {
   const { t } = useLanguage();
+  const contactHref = useLocalizedHref("contact");
 
   const plans = [
     {
@@ -88,7 +90,7 @@ const PricingSection = () => {
                   <span className="text-muted-foreground mb-1">{plan.period}</span>
                 </div>
                 <Link
-                  href="/iletisim"
+                  href={contactHref}
                   className={`w-full inline-flex items-center justify-center py-2.5 px-4 rounded-md text-sm font-semibold transition-all active:scale-[0.98] mb-6 ${
                     plan.highlight
                       ? "bg-primary text-primary-foreground hover:bg-[hsl(243,80%,55%)] shadow-[0_2px_8px_hsl(243_80%_62%/0.30)]"
